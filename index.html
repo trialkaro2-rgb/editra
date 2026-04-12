@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Editra Company</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {margin:0;font-family:Inter;background:#0A0A0A;color:white;}
+section{padding:80px 20px;}
+h1,h2{font-family:'Bebas Neue';letter-spacing:2px;}
+.hero{height:100vh;display:flex;align-items:center;}
+.btn{padding:12px 25px;background:#F5A623;color:black;text-decoration:none;}
+
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.stat-card{border:1px solid #333;padding:20px;text-align:center;}
+.stat-num{font-size:40px;color:#F5A623;}
+
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.service{border:1px solid #333;padding:20px;}
+
+.portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+video{width:100%;height:250px;object-fit:cover;}
+
+.contact a{color:#F5A623;text-decoration:none;}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>We Don't Just Edit.<br>We Transform.</h1>
+    <a href="#contact" class="btn">Get Quote</a>
+  </div>
+</section>
+
+<!-- ABOUT STATS -->
+<section>
+<h2>Our Stats</h2>
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-num" data-target="1000">0</div>
+    <p>Projects Delivered</p>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num" data-target="4.5">0</div>
+    <p>Client Rating</p>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num" data-target="3">0</div>
+    <p>Day Turnaround</p>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num" data-target="85">0</div>
+    <p>Satisfaction Rate</p>
+  </div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section>
+<h2>Services</h2>
+<div class="services">
+
+<div class="service">Video Editing</div>
+<div class="service">Reels & Short Form</div>
+<div class="service">Color Grading & Sound</div>
+
+<div class="service">
+YouTube Production <br><small>Coming Soon</small>
+</div>
+
+<div class="service">
+Brand Content Strategy <br><small>Coming Soon</small>
+</div>
+
+<div class="service">Motion Graphics</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section>
+<h2>Portfolio</h2>
+
+<div class="portfolio">
+
+<video controls src="https://drive.google.com/uc?export=download&id=1wwP0W6Fo117bT1sWFQm01DmIhTl6L3qB"></video>
+
+<video controls src="https://drive.google.com/uc?export=download&id=1r6LVvTQFK8aItfwDEBOSGLFOp7cdAmZN"></video>
+
+<video controls src="https://drive.google.com/uc?export=download&id=18mBPgYH6MuSRK-qiFPBjLSAWZf6DfMvW"></video>
+
+<video controls src="https://drive.google.com/uc?export=download&id=1wSVx_8McE1uuE6O0swRE9_Wo43w94GQr"></video>
+
+<video controls src="https://drive.google.com/uc?export=download&id=1E2gL_ObMBK8g1Cq4tUrFTe4LvbCzITH1"></video>
+
+<video controls src="https://drive.google.com/uc?export=download&id=1FMDlFc3LxaM0ldnZfo4_cSEBbbLezrQh"></video>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact</h2>
+
+<p>Email: theeditracompany@gmail.com</p>
+
+<p>
+WhatsApp: 
+<a href="https://wa.me/917470606150" target="_blank">
++91 7470606150
+</a>
+</p>
+
+</section>
+
+<!-- SCRIPT -->
+<script>
+// COUNTER
+const counters = document.querySelectorAll('.stat-num');
+
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const inc = target / 100;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(update, 20);
+    } else {
+      if (target == 1000) counter.innerText = "1000+";
+      else if (target == 4.5) counter.innerText = "4.5★";
+      else if (target == 85) counter.innerText = "85%";
+      else counter.innerText = target;
+    }
+  };
+  update();
+});
+</script>
+
+</body>
+</html>
